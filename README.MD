@@ -14,6 +14,8 @@ npm run install
 npm run start
 ```
 
+## Открываем [http://localhost:3000/](http://localhost:3000/)
+
 ### Полезная инфа
 
 - [youtube](https://youtu.be/pcY8-pDGLkI)
