@@ -1,0 +1,14 @@
+{
+  "name": "react_in_nuxt",
+  "version": "1.0.0",
+  "description": "test mount react app in nuxt2 module federation",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently 'cd ./react-remote && npm run start' 'cd ./nuxt-host && npm run dev'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
