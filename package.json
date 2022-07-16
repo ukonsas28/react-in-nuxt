@@ -4,6 +4,7 @@
   "description": "test mount react app in nuxt2 module federation",
   "main": "index.js",
   "scripts": {
+    "install": "concurrently 'cd ./react-remote && npm i' 'cd ./nuxt-host && npm i",
     "start": "concurrently 'cd ./react-remote && npm run start' 'cd ./nuxt-host && npm run dev'"
   },
   "author": "",
