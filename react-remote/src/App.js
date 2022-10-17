@@ -15,6 +15,9 @@ function App() {
               <Link to="/test">
                 Щелкни для перехода на другую страницу в React APP
               </Link>
+              <Link to="/test2">
+               Для перехода в Nuxt
+              </Link>
             </header>
           </div>
         }
