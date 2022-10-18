@@ -1,8 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
-import { VueLink } from "./components/VueLink";
+import { Layout } from "./components/layout";
+import { FirstReactPage } from "./pages/FirstReactPage";
+import { SecondReactPage } from "./pages/SecondReactPage";
+
+const routerConfig = {
+  firstPage: <FirstReactPage />,
+  secondPage: <SecondReactPage />,
+};
 
 function App() {
   useEffect(() => {
@@ -12,37 +18,18 @@ function App() {
     };
   }, []);
 
+  const [params] = useSearchParams();
+  const page = params.get("page");
+
   return (
     <Routes>
       <Route
         path="/reactPage"
-        element={
-          <div className="App">
-            <header className="App-header">
-              <h1>Главная страница в React APP </h1>
-              <img src={logo} className="App-logo" alt="logo" />
-              <Link to="/reactPage/test">
-                Щелкни для перехода на другую страницу в React APP
-              </Link>
-              <VueLink to="/test2">Для перехода в Nuxt</VueLink>
-            </header>
-          </div>
-        }
-      />
-      <Route
-        path="/reactPage/test"
-        element={
-          <div className="App">
-            <header className="App-header">
-              <h1>Другая страница в React APP </h1>
-              <img src={logo} className="App-logo" alt="logo" />
-              <Link to="/reactPage">Назад</Link>
-            </header>
-          </div>
-        }
+        element={<Layout> {routerConfig[page] || null}</Layout>}
       />
     </Routes>
   );
 }
 
 export default App;
+
