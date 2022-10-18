@@ -2,13 +2,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
+import { VueLink } from "./components/VueLink";
 
 function App() {
-
-  useEffect(()=>{
-    console.log('react-mount')
-    return ()=>{console.log('react-unmount')}
-  },[])
+  useEffect(() => {
+    console.log("react-mount");
+    return () => {
+      console.log();
+    };
+  }, []);
 
   return (
     <Routes>
@@ -19,28 +21,22 @@ function App() {
             <header className="App-header">
               <h1>Главная страница в React APP </h1>
               <img src={logo} className="App-logo" alt="logo" />
-              <Link to="/test" onClick={(e)=>{
-                e.preventDefault()
-                window.onNavigate()
-                }
-                }>
+              <Link to="/reactPage/test">
                 Щелкни для перехода на другую страницу в React APP
               </Link>
-              <Link to="/test2">
-               Для перехода в Nuxt
-              </Link>
+              <VueLink to="/test2">Для перехода в Nuxt</VueLink>
             </header>
           </div>
         }
       />
       <Route
-        path="/test"
+        path="/reactPage/test"
         element={
           <div className="App">
             <header className="App-header">
               <h1>Другая страница в React APP </h1>
               <img src={logo} className="App-logo" alt="logo" />
-              <Link to="../">Назад</Link>
+              <Link to="/reactPage">Назад</Link>
             </header>
           </div>
         }

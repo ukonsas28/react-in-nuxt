@@ -11,16 +11,16 @@ import ReactApp from '../components/ReactApp.vue'
 export default {
 
     async mounted() {
-    
+
         if (!window.isInitReact) {
             await reactApp.init({});
             window.isInitReact = true
         }
-      
+
         const result = await reactApp.get("./ReactApp");
-        console.log(result)
-        result();
-        const onNavigate = () => { this.$router.push('/test2') }
+        const module = await result();
+        module.mountReact()
+        const onNavigate = (path) => { this.$router.push(path) }
         window.onNavigate = onNavigate
 
     },
