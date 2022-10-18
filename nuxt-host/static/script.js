@@ -20,11 +20,11 @@ const start = async () => {
       },
     },
   но как это правильно сделать ¯\_(ツ)_/¯ */
-  await reactApp.init({});
+  // await reactApp.init({});
   /*получаем модуль и запускаем его выполнение
   result - это вроде фабрика которая создаст объект с модулем и запустит его */
-  const result = await reactApp.get("./ReactApp");
-  result();
+  // const result = await reactApp.get("./ReactApp");
+  // result();
 };
 
 start();
